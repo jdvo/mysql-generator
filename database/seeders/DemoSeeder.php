@@ -13,6 +13,6 @@ class DemoSeeder extends Seeder
      */
     public function run(): void
     {
-        Demo::factory()->count(1000000)->create();
+        Demo::factory()->count(10000)->create();
     }
 }
