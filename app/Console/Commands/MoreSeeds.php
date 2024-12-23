@@ -36,10 +36,10 @@ class MoreSeeds extends Command
             $this->info("Performing run {$i} of {$total_runs}.");
 
             //$seeder = new DemoSeeder;
-            dd($this->call([
-                DemoSeeder::class
+            $this->call([
+                (new DemoSeeder)->run()
                 //$seeder->run()
-            ]));
+            ]);
         }
     }
 }
