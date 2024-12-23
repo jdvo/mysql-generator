@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        dd($this->call([
+        $this->call([
             DemoSeeder::class
-        ]));
+        ]);
     }
 }
