@@ -9,4 +9,6 @@ class Demo extends Model
 {
     /** @use HasFactory<\Database\Factories\DemoModelFactory> */
     use HasFactory;
+
+    protected $table = 'demo';
 }
