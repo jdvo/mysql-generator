@@ -29,16 +29,17 @@ class MoreSeeds extends Command
 
         $total = (int)$this->argument('total');
 
-        $seeder = 10000;
-        $total_runs = ceil($total / $seeder);
+        $seeder_count = 1000;
+        $total_runs = ceil($total / $seeder_count);
+
+        $seeder = new DemoSeeder;
 
         for ($i = 1; $i <= $total_runs; $i++) {
             $this->info("Performing run {$i} of {$total_runs}.");
 
-            //$seeder = new DemoSeeder;
+            //
             $this->call([
-                (new DemoSeeder)->run()
-                //$seeder->run()
+                $seeder->run()
             ]);
         }
     }
