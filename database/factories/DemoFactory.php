@@ -17,12 +17,12 @@ class DemoFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker()->title(),
-            'name' => $this->faker()->name(),
-            'username' => $this->faker()->userName(),
-            'email' => $this->faker()->email(),
-            'ip_address' => $this->faker()->ipv4(),
-            'bio' => $this->faker()->paragraph()
+            'title' => fake()->title(),
+            'name' => fake()->name(),
+            'username' => fake()->userName(),
+            'email' => fake()->email(),
+            'ip_address' => fake()->ipv4(),
+            'bio' => fake()->paragraph()
         ];
     }
 }
