@@ -40,7 +40,8 @@ class MoreSeeds extends Command
 
             $total_created = $i * $seeder_count;
             if ($total_created > $total) $total_created = $total;
-            $this->info("{$total_created} records created");
+
+            $this->info("\n{$total_created} records created");
         }
     }
 }
