@@ -15,14 +15,6 @@ class DemoSeeder extends Seeder
      */
     public function run(): void
     {
-        $output = new ConsoleOutput();
-        $total = 1000;
-        $progressBar = new ProgressBar($output, $total);
-
-        for ($i = 0; $i < $total; $i++) {
-            Demo::factory()->create();
-            $progressBar->advance();
-        }
-        $progressBar->finish();
+        Demo::factory()->create();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Database\Seeders\DemoSeeder;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class MoreSeeds extends Command
 {
@@ -29,19 +31,16 @@ class MoreSeeds extends Command
 
         $total = (int)$this->argument('total');
 
-        $seeder_count = 1000;
-        $total_runs = ceil($total / $seeder_count);
+        $output = new ConsoleOutput();
+        $progressBar = new ProgressBar($output, $total);
 
-        for ($i = 1; $i <= $total_runs; $i++) {
-            $this->info("Performing run {$i} of {$total_runs}.");
+        $this->info("Creating {$total} new records.");
 
-            //
+        for ($i = 1; $i <= $total; $i++) {
             $this->call(DemoSeeder::class);
-
-            $total_created = $i * $seeder_count;
-            if ($total_created > $total) $total_created = $total;
-
-            $this->info("\n{$total_created} records created");
+            $progressBar->advance();
         }
+
+        $progressBar->finish();
     }
 }
