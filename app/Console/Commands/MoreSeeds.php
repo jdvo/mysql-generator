@@ -37,7 +37,10 @@ class MoreSeeds extends Command
 
             //
             $this->call(DemoSeeder::class);
-            $this->info("{($i*$seeder_count)} records created");
+
+            $total_created = $i * $seeder_count;
+            if ($total_created > $total) $total_created = $total;
+            $this->info("{$total_created} records created");
         }
     }
 }
