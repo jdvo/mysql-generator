@@ -19,7 +19,6 @@ class DemoSeeder extends Seeder
         $total = 1000;
         $progressBar = new ProgressBar($output, $total);
 
-        Demo::factory()->count(1000)->create();
         for ($i = 0; $i < $total; $i++) {
             Demo::factory()->create();
             $progressBar->advance();
